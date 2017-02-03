@@ -242,6 +242,19 @@ class FlipMove extends Component {
       this.doesChildNeedToBeAnimated
     );
 
+    const { leaveOrder, enterOrder } = this.props;
+
+    const isLeavingAnimation = dynamicChildren.every(c => c.leaving);
+    const isEnteringAnimation = dynamicChildren.every(c => c.entering);
+
+    if (leaveOrder === 'reverse' && isLeavingAnimation) {
+      dynamicChildren.reverse();
+    }
+
+    if (enterOrder === 'reverse' && isEnteringAnimation) {
+      dynamicChildren.reverse();
+    }
+
     dynamicChildren.forEach((child, n) => {
       this.remainingAnimations += 1;
       this.childrenToAnimate.push(child.key);

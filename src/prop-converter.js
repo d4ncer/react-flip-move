@@ -202,6 +202,8 @@ function propConverter(ComposedComponent) {
     getPosition: PropTypes.func,
     maintainContainerHeight: PropTypes.bool.isRequired,
     verticalAlignment: PropTypes.oneOf(['top', 'bottom']).isRequired,
+    leaveOrder: PropTypes.oneOf(['forward', 'reverse']).isRequired,
+    enterOrder: PropTypes.oneOf(['forward', 'reverse']).isRequired,
   };
 
   FlipMovePropConverter.defaultProps = {
@@ -217,6 +219,8 @@ function propConverter(ComposedComponent) {
     getPosition: node => node.getBoundingClientRect(),
     maintainContainerHeight: false,
     verticalAlignment: 'top',
+    leaveOrder: 'forward',
+    enterOrder: 'forward',
   };
 
   return FlipMovePropConverter;

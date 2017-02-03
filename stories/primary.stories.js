@@ -47,6 +47,52 @@ easings.forEach((easing) => {
     ));
 });
 
+storiesOf('Animation Orders', module)
+  .add('forward leave + forward enter', () => (
+    <FlipMoveWrapper
+      itemType={FlipMoveListItem}
+      flipMoveProps={{
+        staggerDurationBy: 100,
+        staggerDelayBy: 45,
+        enterOrder: 'forward',
+        leaveOrder: 'forward',
+      }}
+    />
+  ))
+  .add('forward leave + reverse enter', () => (
+    <FlipMoveWrapper
+      itemType={FlipMoveListItem}
+      flipMoveProps={{
+        staggerDurationBy: 100,
+        staggerDelayBy: 45,
+        enterOrder: 'reverse',
+        leaveOrder: 'forward',
+      }}
+    />
+  ))
+  .add('reverse leave + forward enter', () => (
+    <FlipMoveWrapper
+      itemType={FlipMoveListItem}
+      flipMoveProps={{
+        staggerDurationBy: 100,
+        staggerDelayBy: 45,
+        enterOrder: 'forward',
+        leaveOrder: 'reverse',
+      }}
+    />
+  ))
+  .add('reverse leave + reverse enter', () => (
+    <FlipMoveWrapper
+      itemType={FlipMoveListItem}
+      flipMoveProps={{
+        staggerDurationBy: 100,
+        staggerDelayBy: 45,
+        enterOrder: 'reverse',
+        leaveOrder: 'reverse',
+      }}
+    />
+  ));
+
 storiesOf('Staggers', module)
   .add('short duration stagger', () => (
     <FlipMoveWrapper
@@ -90,6 +136,8 @@ storiesOf('Staggers', module)
       flipMoveProps={{
         staggerDurationBy: 100,
         staggerDelayBy: 45,
+        enterOrder: 'forward',
+        leaveOrder: 'reverse',
       }}
     />
   ));
